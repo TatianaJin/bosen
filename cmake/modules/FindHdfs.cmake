@@ -5,8 +5,9 @@
 #  HDFS_INCLUDE_DIRS
 
 
-find_path(HDFS_INCLUDE_DIR NAMES hdfs.h  HINTS $ENV{HADOOP_HOME}/include)
-find_library(HDFS_LIBRARY NAMES hdfs HINTS $ENV{HADOOP_HOME}/lib/native)
+message(STATUS $ENV{LIBHDFS3_HOME}/include)
+find_path(HDFS_INCLUDE_DIR NAMES hdfs.h  HINTS $ENV{LIBHDFS3_HOME}/include/hdfs)
+find_library(HDFS_LIBRARY NAMES hdfs3 HINTS $ENV{LIBHDFS3_HOME}/lib)
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(HDFS DEFAULT_MSG

@@ -7,7 +7,7 @@ file(GLOB_RECURSE Bosen_SOURCE_FILES *.[ch]pp)
 add_library(petuum_bosen ${Bosen_SOURCE_FILES})
 
 # uncomment to enable HDFS.
-set(USE_HDFS 0)
+set(USE_HDFS 1)
 
 # Required libraries
 find_package(Boost 1.54.0 REQUIRED COMPONENTS thread system)
@@ -24,8 +24,8 @@ find_package(Yaml REQUIRED)
 find_package(ZeroMQ 3.2.0 REQUIRED)
 
 if(${USE_HDFS})
-    find_package(HDFS REQUIRED)
-    find_package(JVM REQUIRED)
+    find_package(Hdfs REQUIRED)
+    find_package(Jvm REQUIRED)
     add_definitions(-DHAS_HADOOP)
     target_include_directories(petuum_bosen PUBLIC ${HDFS_INCLUDE_DIRS})
     target_link_libraries(petuum_bosen PUBLIC

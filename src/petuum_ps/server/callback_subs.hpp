@@ -7,7 +7,7 @@
 #include <glog/logging.h>
 
 #ifndef PETUUM_MAX_NUM_CLIENTS
-#define PETUUM_MAX_NUM_CLIENTS 8
+#define PETUUM_MAX_NUM_CLIENTS 20
 #endif
 
 namespace petuum {

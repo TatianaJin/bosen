@@ -97,6 +97,7 @@ float ParseLibSVMLine(const std::string& line, std::vector<int32_t>* feature_ids
   // Read label.
   float label = strtof(line.data(), &endptr);
   label = label_one_based ? label - 1 : label;
+  label = (label < 0) ? 0 : label;
   ptr = endptr;
 
   while (isspace(*ptr) && ptr - line.data() < line.size()) ++ptr;
